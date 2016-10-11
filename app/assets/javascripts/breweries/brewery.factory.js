@@ -33,7 +33,7 @@
               },
               data: {
                   brewery: brewery
-                  // the 'brewery' data object {
+                  // brewery {
                   //    name: 'Evolution Craft Brewing',
                   //    state_id: 20  
                   //}

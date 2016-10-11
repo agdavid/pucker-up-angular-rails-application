@@ -16,7 +16,7 @@
 
         //defined methods on the vm        
         function activate() {
-          getBrewery($stateParams.breweryId);
+            getBrewery($stateParams.breweryId);
         };
 
         function getBrewery(id) {
