@@ -65,6 +65,7 @@
                 templateUrl: 'breweries/show.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               })
+          //state pages
               .state('home.state', {
                 url: 'states/:state',
                 templateUrl: 'states/show.html',

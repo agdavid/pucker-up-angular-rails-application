@@ -4,18 +4,30 @@
     function StatesShowController($stateParams, BreweryFactory) {
 
         var vm = this;
+        vm.stateName = stateName($stateParams);
+        vm.getBreweries = getBreweries;
 
         activate();
 
         function activate() {
-            stateName($stateParams);
+            getBreweries();
         };
 
         function stateName($stateParams) {
-            var stateLettersArray = $stateParams.state.split('');
-            var firstLetterUpperCase = stateLettersArray[0].toUpperCase();
-            stateLettersArray[0] = firstLetterUpperCase;
+            //this function covers the case of a user directly typing '/states/colorado' rather than '/states/Colorado'
+            var stateLettersArray = $stateParams.state.split(''); //split name of state into array
+            var firstLetterUpperCase = stateLettersArray[0].toUpperCase(); //transform first letter
+            stateLettersArray[0] = firstLetterUpperCase; //replace value in array
             return vm.stateName = stateLettersArray.join('')
+        };
+
+        function getBreweries() {
+            return BreweryFactory.getBreweries()
+                                 .then(setBreweries)
+        };
+
+        function setBreweries(data) {
+            debugger; 
         };
 
         // get the Breweries
