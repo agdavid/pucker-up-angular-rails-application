@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    function StatesShowController($stateParams, BreweryFactory) {
+    function StatesShowController($stateParams, BreweryFactory, $filter) {
 
         var vm = this;
         vm.stateName = stateName($stateParams);
@@ -27,7 +27,8 @@
         };
 
         function setBreweries(data) {
-            debugger; 
+            vm.breweries = data;
+            return vm.filteredList =  $filter('filter')(vm.breweries, vm.stateName)
         };
 
         // get the Breweries
