@@ -1,5 +1,8 @@
-<div>Welcome to the State View</div>
 
-<p>You are currently viewing {{ statesShowCtrl.stateName }}</p>
+<h1>Breweries in {{ statesShowCtrl.stateName }}</h1>
 
-{{ statesShowCtrl.filteredList }}
+<ul>
+    <li ng-repeat="brewery in statesShowCtrl.filteredList">
+        {{ brewery.name }} - {{ brewery.url }}
+    </li>
+</ul>
