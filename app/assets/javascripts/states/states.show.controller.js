@@ -1,14 +1,18 @@
 (function(){
+
     'use strict';
 
     function StatesShowController($stateParams, BreweryFactory, $filter) {
-
         var vm = this;
+
+        //callable methods on the vm
         vm.stateName = stateName($stateParams);
         vm.getBreweries = getBreweries;
 
+        //instantiated info
         activate();
 
+        //defined methods on the vm
         function activate() {
             getBreweries();
         };
@@ -27,14 +31,9 @@
         };
 
         function setBreweries(data) {
-            vm.breweries = data;
-            return vm.filteredList =  $filter('filter')(vm.breweries, vm.stateName)
+            vm.breweries = data; //all breweries
+            return vm.filteredList =  $filter('filter')(vm.breweries, vm.stateName) //filtered by state
         };
-
-        // get the Breweries
-        // filter the Breweries
-        // set the Breweries and ng-repeat in state.html
-
     };
 
     angular
